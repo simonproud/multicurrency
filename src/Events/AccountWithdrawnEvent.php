@@ -3,25 +3,25 @@ declare(strict_types=1);
 
 namespace Simonproud\Multicurrency\Events;
 
-use Simonproud\Multicurrency\Account;
+use Simonproud\Multicurrency\AccountInterface;
 use Simonproud\Multicurrency\CurrencyInterface;
 use Simonproud\Multicurrency\Event;
 
 class AccountWithdrawnEvent implements Event
 {
     public const NAME = 'account.withdrawn';
-    private Account $account;
+    private AccountInterface $account;
     private CurrencyInterface $currency;
     private float $amount;
 
-    public function __construct(Account $account, CurrencyInterface $currency, float $amount)
+    public function __construct(AccountInterface $account, CurrencyInterface $currency, float $amount)
     {
         $this->account = $account;
         $this->currency = $currency;
         $this->amount = $amount;
     }
 
-    public function getAccount(): Account
+    public function getAccount(): AccountInterface
     {
         return $this->account;
     }

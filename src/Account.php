@@ -6,7 +6,7 @@ namespace Simonproud\Multicurrency;
 use Simonproud\Multicurrency\Events\AccountDepositedEvent;
 use Simonproud\Multicurrency\Events\AccountWithdrawnEvent;
 
-class Account
+class Account implements AccountInterface
 {
     private BalanceInterface $balance;
     private CurrencyInterface $primaryCurrency;

@@ -5,7 +5,7 @@ namespace Simonproud\Multicurrency\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Simonproud\Multicurrency\Account;
-use Simonproud\Multicurrency\Bank;
+use Simonproud\Multicurrency\BankExample;
 use Simonproud\Multicurrency\Currency;
 use Simonproud\Multicurrency\CurrencyRate;
 use Simonproud\Multicurrency\EventDispatcher;
@@ -17,7 +17,7 @@ class BankTest extends TestCase
     private CurrencyRate $rate;
     private Currency $usd;
     private Currency $eur;
-    private Bank $bank;
+    private BankExample $bank;
     private Account $account;
 
     protected function setUp(): void
@@ -29,7 +29,7 @@ class BankTest extends TestCase
         $this->rate->setRate($this->usd, $this->eur, 0.9);
         $this->rate->setRate($this->eur, $this->usd, 1.1);
 
-        $this->bank = new Bank();
+        $this->bank = new BankExample();
         $this->account = $this->bank->openAccount($this->rate);
 
         $this->account->addCurrency($this->usd);
